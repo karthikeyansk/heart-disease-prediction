@@ -1,0 +1,96 @@
+<html>
+<head>
+	<style>
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+label {
+  font-style: normal;
+   font-size: 20px;
+   font-family: Georgia;
+
+
+   
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.col-25 {
+  float: center;
+  width: 40%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: center;
+  width: 40%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 20%;
+    margin-top: 0;
+  }
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+h2.oblique {
+  font-style: oblique;
+ font-size: 40px;
+ font-weight: bold;
+font-variant: small-caps;
+}
+
+	</style>
+</head>   
+  <body>
+
+  <div class="container">
+  <form action="/index" method="POST">
+  <div class="row">
+    <div class="col-25">
+     <label for="age"> Result</label>
+    </div>
+    <div class="col-75">
+         <h2> {{ prediction }}</h2>
+    </div>
+  </div>
+  </div>
+  <input type="submit" value="BACK">
+  </form>
+
+      
+   </body>
+</html>

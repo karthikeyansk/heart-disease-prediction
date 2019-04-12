@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+label {
+  font-style: normal;
+   font-size: 20px;
+   font-family: Georgia;
+
+
+   
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.col-25 {
+  float: center;
+  width: 40%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: center;
+  width: 40%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 20%;
+    margin-top: 0;
+  }
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+h2.oblique {
+  font-style: oblique;
+ font-size: 40px;
+ font-weight: bold;
+font-variant: small-caps;
+}
+</style>
+</head>
+<body>
+
+<h2 class="oblique">Heart disease prediction form</h2>
+ <div id="meta_para">
+      <p >The data is taken from a UCI Heart disease dataset library. The trained machine learning model is made available to predict the occurence of heart disease
+	  . The model is <b>85%</b>(approx) accurate. Enjoy! <br>PS: the site is still under construction.</p>
+      <p><b>Instruction</b>: fill the form to predict whether the chance of heart disease</p>
+    </div>
+<div class="container">
+  <form action="/result" method="POST">
+  <div class="row">
+    <div class="col-25">
+     <label for="age">Age</label>
+    </div>
+    <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="your age...." required >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+   <label for="sex">Sex</label>
+  </div>
+  <div class="col-25">
+  <select id="sex" name="sex">
+      <option value="0">male</option>
+      <option value="1">Female</option>
+     </select>
+  </div>
+  </div>
+  
+   <div class="row">
+    <div class="col-25">
+    <label for="cp">Chest Pain</label>
+  </div>
+  <div class="col-25">
+  <select id="cp" name="cp">
+      <option value="1"> typical type 1 </option>
+      <option value="2">typical type agina</option>
+      <option value="3">non-agina pain</option>
+      <option value="4">asymptomatic</option>
+      </select>
+  </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-25">
+      <label for="trestbps">Resting blood pressure</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="trestbps" name="trestbps" placeholder="blood pressure value.." required>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-25">
+      <label for="chol">Serum cholestrol</label>
+    </div>
+    <div class="col-75">
+          <input type="text" id="chol" name="chol" placeholder="cholestrol value.." required>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-25">
+    <label for="fbs">Fasting Blood Sugar</label>
+  </div>
+  <div class="col-25">
+  <select id="fbs" name="fbs">
+      <option value="1">  ≥ 120 mg/dl </option>
+      <option value="0">≤ 120 mg/dl</option>
+           </select>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+       <label for="restecg">Resting electrographic results</label>
+    </div>
+    <div class="col-75">
+      <select id="restecg" name="restecg">
+      <option value="0">  Normal </option>
+      <option value="1">  having ST_T wave abnormal </option>
+      <option value="2">left ventricular  hypertrophy </option>
+           
+		   </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+     <label for="thalach">Maximum heart rate achieved </label>
+    </div>
+    <div class="col-75">
+       <input type="text" id="thalach" name="thalach" required>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-25">
+     <label for="exang">Exercise induced angina -(Exang)</label>
+  </div>
+  <div class="col-25">
+  <select id="exang" name="exang">
+      <option value="0">no</option>
+      <option value="1">yes</option>
+     </select>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+     <label for="oldpeak">ST depression induced by exercise  </label>
+    </div>
+    <div class="col-75">
+       <input type="text" id="oldpeak" name="oldpeak" placeholder="oldpeak value" required>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="slope">Slope of the ST segment </label>
+    </div>
+    <div class="col-75">
+      <select id="slope" name="slope">
+      <option value="1">  up sloping   </option>
+      <option value="2">   flat  </option>
+      <option value="3"> down sloping  </option>
+      <option value="4"> Unknown  </option>
+           
+		   </select>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-25">
+      <label for="ca">Number of major vessels colored by floursopy </label>
+    </div>
+    <div class="col-75">
+      <select id="ca" name="ca">
+      <option value="0">  0   </option>
+      <option value="1">   1  </option>
+      <option value="2"> 2  </option>
+           <option value="3"> 3  </option>
+		   <option value="4"> Unknown  </option>
+		   </select>
+           
+		   </select>
+    </div>
+  </div>
+     <div class="row">
+    <div class="col-25">
+      <label for="thal">Defect type</label>
+    </div>
+    <div class="col-75">
+      <select id="thal" name="thal">
+      <option value="3">   normal    </option>
+      <option value="6">    fixed </option>
+      <option value="7"> reversible defect  </option>
+           <option value="8"> Unknown  </option>
+		   </select>
+           
+		   </select>
+    </div>
+  </div>
+  <br>
+ 
+  <input type="submit" value="PREDICT">
+   
+  
+  <input type="reset" value="RESET">
+ 
+  </form>
+</div>
+
+</body>
+</html>
